@@ -13,7 +13,7 @@ type Game struct {
 	TurnsLetf int // remaining attempts
 }
 
-//* LE MOT DEVINER | LE NOMBRE DE TOUR INIAL
+//* THE WORD GUESS | THE INIAL NUMBER OF ROUNDS
 
 func New(turns int, word string) (*Game, error) {
 	if len(word) < 3 {
@@ -34,7 +34,7 @@ func New(turns int, word string) (*Game, error) {
 	} 
 	return g, nil
 }
-// Lettre proposer par le joueur | état de la partie
+// Letter proposed by the player | game state
 func (g *Game) MakeAGuess(guess string) {
 	 guess = strings.ToUpper(guess)
 
@@ -62,7 +62,7 @@ func (g *Game) MakeAGuess(guess string) {
 	}
 }
 
-// ajoute la et les lettres du mot 
+// add the and the letters of the word
 func (g *Game) RevealLetter(guess string) {
 	g.UsedLetters = append(g.UsedLetters, guess)
 	for i, l := range g.Letters  {
@@ -71,13 +71,13 @@ func (g *Game) RevealLetter(guess string) {
 		}
 	}
 }
-// tour de jeux fini et ajout dans les lettre utilisé
+// finished game round and addition in the letters used
 func (g *Game) LoseTurn(guess string){
 	g.TurnsLetf--
 	g.UsedLetters = append(g.UsedLetters, guess)
 }
 
-// trouver toute les lettres du mot
+// find all the letters of the word
 func hasWon(letters []string, foundLetters []string) bool {
 	for i := range letters {
 		if letters[i] != foundLetters[i]{
@@ -89,7 +89,7 @@ func hasWon(letters []string, foundLetters []string) bool {
 
 
 
-// la lettre dans le mot ?  
+// the letter in the word? 
 func letterInWord(guess string, letters []string) bool {
 	for _, l := range letters {
 		if l == guess {
