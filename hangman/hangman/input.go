@@ -11,7 +11,7 @@ import (
 
 var reader = bufio.NewReader(os.Stdin)
 
-//* SAISIE de l'utilisateur 
+//* USER INPUT
 func ReadGuess() (guess string, err error) {
 	valid := false
 	for !valid {
