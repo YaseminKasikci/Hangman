@@ -2,7 +2,7 @@ package hangman
 
 import "fmt"
 
-//* affichage de Bonjour
+
 func DrawWelcome() {
 	fmt.Println(`
 	_______  _        _______  _______  _______  _       
@@ -16,14 +16,14 @@ func DrawWelcome() {
 																																 	
 	`)
 }
-// afficher l'état courant de l'échaffaut et l'état de la partie (où est ce qu'on en est)
+// display the current state of the scaffold and the state of the game (where we are)
 func Draw(g *Game, guess string) {
 	drawTurns(g.TurnsLetf)
 	drawState(g, guess)
 
 }
 
-// l'état de l'échaffaut 
+// the state of the scaffold
 func drawTurns(l int) {
 	var draw string
 	switch l {
@@ -132,17 +132,17 @@ func drawTurns(l int) {
 	}
 	fmt.Println(draw)
 }
-// L'état de la partie
+// The state of the game
 
 func drawState(g *Game, guess string) {
-	//lettre trouvé
+//letter found
 	fmt.Println("Guessed: ")
 	drawLetters(g.FoundLetters)
-//lettre utiliser
+//letter use
 	fmt.Println("Used: ")
 	drawLetters(g.UsedLetters)
 
-	// affichage en fonctionn de l'état de la partie
+	// display depending on the state of the game
 	switch g.State {
 	case "goodGuess":
 		fmt.Println("Good guess !")
@@ -159,7 +159,7 @@ func drawState(g *Game, guess string) {
 		
 	}
 }
-// boucle sur les lettres trouvé et déjà utilisée
+// loop over the letters found and already used
 func drawLetters(l []string) {
 		for _, c := range l {
 			fmt.Printf("%v ", c)
