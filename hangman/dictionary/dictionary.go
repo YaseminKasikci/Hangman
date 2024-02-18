@@ -9,7 +9,7 @@ import (
 
 var words = make([]string, 0, 50)
 
-// charge le fichier
+// load the file
 func Load(filename string) error {
 	f, err :=os.Open(filename)
 	if err != nil {
@@ -27,8 +27,7 @@ func Load(filename string) error {
 	}
 	return nil 
 }
-
-//renvoie un mot aléatoire
+//return a random word
 func PickWord() string {
 	rand.NewSource(time.Now().Unix())
 	i := rand.Intn(len(words))
